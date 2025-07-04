@@ -1,0 +1,19 @@
+----- Alur -----
+
+BUAT SKEMA TABEL "roles" dan "users"
+
+Alur login untuk masuk ke aplikasi
+
+    Sebagai User :
+        Melakukan registrasi Akun pada halaman "Register" dengan inputan berikut:
+        > name
+        > email
+        > password
+        > status -> default "submitted"
+        > role_id -> default role adalah id users (menunggu status "approved")
+
+    Sebagai Admin :
+        > Akun dibuat menggunakan seeder (Hanya ada 1 admin)
+        > Value dari role_id adalah id dari role "admin"
+        > Login seperti biasa menggunakan email dan password
+        > Menyetujui atau menolak pendaftaran akun penduduk
