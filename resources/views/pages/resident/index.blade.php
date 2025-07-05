@@ -51,9 +51,8 @@
                                     </span>
                                 </td>
                                 <td>
-
                                     <div class="d-flex gap-2">
-                                        <a href="/resident/{{ $item->id }}" class="btn btn-sm btn-warning">
+                                        <a href="/resident/edit/{{ $item->id }}" class="btn btn-sm btn-warning">
                                             <i class="fas fa-pen"></i> Ubah
                                         </a>
                                         <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#confirmationDeleteModal-{{ $item->id }}">

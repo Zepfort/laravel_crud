@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Container\Attributes\Auth as AttributesAuth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -11,6 +12,9 @@ class AuthController extends Controller
 {
     public function login()
     {
+        if (Auth::check()){
+            return back();
+        }
         return view('pages.auth.login');
     }
 
@@ -20,6 +24,10 @@ class AuthController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
+
+        // if (Auth::check()){
+        //     return back();
+        // }
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
@@ -48,6 +56,10 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
+        // if (!Auth::check()){
+        //     return redirect('/');
+        // }
+
     Auth::logout();
 
     $request->session()->invalidate();
@@ -59,6 +71,9 @@ class AuthController extends Controller
 
     public function registerView()
     {
+        // if (Auth::check()){
+        //     return back();
+        // }
         return view('pages.auth.register');
     }
 
@@ -69,6 +84,10 @@ class AuthController extends Controller
             'email' => ['required', 'email'],
             'password' => ['required']
         ]);
+
+        // if (Auth::check()){
+        //     return back();
+        // }
 
         $user = new User();
         $user->name = $request->input('name');

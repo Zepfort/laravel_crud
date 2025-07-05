@@ -20,8 +20,14 @@
 
     <!-- Custom CSS for Layout -->
     <style>
+        html, body{
+            height: 100%;
+            margin: 0;
+        }
         body {
             font-family: 'Poppins', sans-serif;
+            display:flex;
+            flex-direction: column;
         }
 
         .sidebar {
@@ -36,7 +42,15 @@
 
         .main-content {
             margin-left: 250px;
-            padding-top: 1rem; /* Height of the navbar */
+            padding-top: 1rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1 0 auto;
+            min-height: 100vh;
+        }
+
+        .main {
+            flex: 1;
         }
 
         .top-navbar {
@@ -75,8 +89,7 @@
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        <div class="main-content flex-grow-1">
-
+        <div class="main-content ">
             <!-- Topbar -->
             @include('layouts.navbar')
             <!-- End of Topbar -->
@@ -87,7 +100,9 @@
             </main>
 
             <!-- Footer -->
-            @include('layouts.footer')
+
+                @include('layouts.footer')
+
             <!-- End of Footer -->
 
         </div>
